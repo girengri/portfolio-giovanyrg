@@ -1,0 +1,157 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    /* 👇 ELIMINADO flex-wrap: wrap; */
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    /* Asegura que ocupe todo el ancho */
+}
+
+.text {
+    flex: 1 1 50%;
+    /* Ocupa la mitad */
+    max-width: 50%;
+    min-width: 300px;
+    /* Evita que se encoja demasiado */
+}
+
+.greeting {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0.5rem 0;
+}
+
+.role {
+    font-size: 1.8rem;
+    color: var(--color-primary-light);
+    margin-bottom: 1rem;
+    min-height: 3rem;
+    /* 👈 Evita que salte cuando el texto cambia */
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    opacity: 0.8;
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    transition:
+        background var(--transition),
+        transform 0.2s;
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+.ctaButton:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.image {
+    flex: 0 0 40%;
+    /* 👈 Ocupa el 40%, no se encoge */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatarPlaceholder {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+            var(--color-primary),
+            var(--color-primary-light));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    color: #fff;
+    box-shadow: 0 8px 30px var(--color-shadow);
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 👇 RESPONSIVE: En móviles sí se apilan */
+@media (max-width: 768px) {
+    .heroContent {
+        flex-wrap: wrap;
+        /* Aquí sí se apilan */
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .description{
+        max-width: none;
+    }
+
+    .text {
+        flex: 1 1 100%;
+        max-width: 100%;
+        min-width: unset;
+    }
+
+    .image {
+        flex: 0 0 100%;
+        justify-content: center;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .role {
+        font-size: 1.4rem;
+        min-height: 2.5rem;
+    }
+
+    .avatarPlaceholder {
+        width: 180px;
+        height: 180px;
+        font-size: 4rem;
+    }
+}

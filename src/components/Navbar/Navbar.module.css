@@ -1,0 +1,342 @@
+/* ===== NAVBAR PRINCIPAL ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-card);
+    box-shadow: 0 2px 10px var(--color-shadow);
+    z-index: 1000;
+    transition:
+        background-color var(--transition),
+        box-shadow var(--transition);
+    padding: 0.8rem 0;
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+/* ===== ENLACES ===== */
+.navLinks {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.navLinks li {
+    position: relative;
+}
+
+.navLinks a {
+    color: var(--color-text);
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color var(--transition);
+    display: inline-block;
+}
+
+/* Línea animada al hover */
+.navLinks a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease-in-out;
+}
+
+.navLinks a:hover {
+    color: var(--color-primary);
+}
+
+.navLinks a:hover::after {
+    width: 100%;
+}
+
+/* ===== CONTROLES (idioma + tema) ===== */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* --- Selector de idioma --- */
+.langWrapper {
+    position: relative;
+}
+
+.langButton {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    transition: background var(--transition);
+}
+
+.langButton:hover {
+    background-color: var(--color-border);
+}
+
+.langIcon {
+    font-size: 1.2rem;
+}
+
+.langCode {
+    font-weight: 600;
+}
+
+.langArrow {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.langArrow.rotated {
+    transform: rotate(180deg);
+}
+
+/* Dropdown de idioma */
+.langDropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--color-shadow);
+    padding: 0.5rem 0;
+    min-width: 150px;
+    z-index: 10;
+    animation: fadeDown 0.2s ease;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.langOption {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 1.2rem;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.langOption:hover {
+    background-color: var(--color-border);
+}
+
+.langOption.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* --- Switch (toggle) de tema --- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-border);
+    transition: 0.3s;
+    border-radius: 26px;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #fff;
+    transition: 0.3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.switch input:checked+.slider {
+    background-color: var(--color-primary);
+}
+
+.switch input:checked+.slider::before {
+    transform: translateX(20px);
+}
+
+/* ===== MENÚ HAMBURGUESA ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text);
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    /* Ocultar enlaces por defecto */
+    .navLinks {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--color-card);
+        padding: 1rem 2rem;
+        gap: 1rem;
+        box-shadow: 0 8px 20px var(--color-shadow);
+        border-radius: 0 0 12px 12px;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform 0.3s ease;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    .navLinks.open {
+        transform: scaleY(1);
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+    .navLinks a {
+        font-size: 1.1rem;
+        padding: 0.4rem 0;
+    }
+
+    /* Mostrar hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Ajustar controles en móvil */
+    .controls {
+        gap: 0.8rem;
+    }
+
+    .langButton {
+        font-size: 0.85rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .langCode {
+        font-size: 0.8rem;
+    }
+
+    .switch {
+        width: 40px;
+        height: 22px;
+    }
+
+    .slider::before {
+        height: 14px;
+        width: 14px;
+        left: 4px;
+        bottom: 4px;
+    }
+
+    .switch input:checked+.slider::before {
+        transform: translateX(18px);
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .controls {
+        gap: 0.5rem;
+    }
+
+    .langButton span:not(.langIcon) {
+        display: none;
+        /* Oculta el código y la flecha en móviles muy pequeños, solo ícono */
+    }
+
+    .langButton .langArrow {
+        display: none;
+    }
+
+    .langDropdown {
+        min-width: 120px;
+        right: -10px;
+    }
+}

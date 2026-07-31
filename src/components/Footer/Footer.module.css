@@ -1,0 +1,23 @@
+.footer {
+    background-color: var(--color-primary-dark);
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.socials {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.socials a {
+    color: #fff;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.socials a:hover {
+    color: var(--color-primary-light);
+}

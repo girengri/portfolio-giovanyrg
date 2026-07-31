@@ -1,0 +1,57 @@
+.projects {
+    background-color: var(--color-bg);
+    transition: background var(--transition);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--color-card);
+    padding: 1.8rem;
+    border-radius: 15px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px var(--color-shadow);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--color-shadow);
+}
+
+.card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.card p {
+    color: var(--color-text);
+    opacity: 0.85;
+    margin-bottom: 1rem;
+}
+
+.tech {
+    display: inline-block;
+    font-size: 0.8rem;
+    background: var(--color-primary-light);
+    color: #fff;
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.link {
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: color var(--transition);
+}
+
+.link:hover {
+    color: var(--color-primary-dark);
+}
