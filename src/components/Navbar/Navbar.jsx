@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 import styles from "./Navbar.module.css";
+import { FiGlobe } from "react-icons/fi";
 
 const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
@@ -79,7 +80,7 @@ const Navbar = () => {
                             onClick={() => setIsLangOpen(!isLangOpen)}
                             aria-label="Cambiar idioma"
                         >
-                            <span className={styles.langIcon}>🌐</span>
+                            <FiGlobe size={20} className={styles.langIcon} />
                             <span className={styles.langCode}>{lang.toUpperCase()}</span>
                             <span
                                 className={`${styles.langArrow} ${isLangOpen ? styles.rotated : ""}`}

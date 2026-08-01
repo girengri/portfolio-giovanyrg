@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import { useLanguage } from "../../context/LanguageContext";
 import styles from "./Contact.module.css";
 import { useState } from "react";
+import toast from "react-hot-toast"; // 👈 Importa toast
 
 const Contact = () => {
     const { t } = useLanguage();
@@ -18,21 +19,21 @@ const Contact = () => {
         setIsSending(true);
         emailjs
             .send(
-                "YOUR_SERVICE_ID",
-                "YOUR_TEMPLATE_ID",
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 {
                     from_name: data.name,
                     from_email: data.email,
                     message: data.message,
                 },
-                "YOUR_PUBLIC_KEY",
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
             )
             .then(() => {
-                alert(t("contact_success"));
+                toast.success(t("contact_success")); // 👈 Toast de éxito
                 reset();
             })
             .catch(() => {
-                alert(t("contact_error"));
+                toast.error(t("contact_error")); // 👈 Toast de error
             })
             .finally(() => setIsSending(false));
     };

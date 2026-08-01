@@ -33,6 +33,8 @@
     transition:
         border-color var(--transition),
         box-shadow var(--transition);
+    resize: none; /* 👈 ESTO BLOQUEA EL REDIMENSIONAMIENTO */
+    font-family: inherit; /* Para que herede la fuente del body */
 }
 
 .field input:focus,

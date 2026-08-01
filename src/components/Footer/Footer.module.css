@@ -21,8 +21,11 @@
 
 .socials a {
     color: #fff;
-    font-weight: 500;
     transition: color var(--transition);
+    display: inline-flex;      /* para centrar el ícono */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .socials a:hover {
