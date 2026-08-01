@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 import styles from "./Navbar.module.css";
+import { FaChartBar } from "react-icons/fa";
 import { FiGlobe } from "react-icons/fi";
 
 const Navbar = () => {
@@ -45,7 +46,12 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <div className={`container ${styles.navContainer}`}>
                 {/* Logo */}
-                <div className={styles.logo}>📊 DataPortfolio</div>
+               <div className={styles.logo}>
+                    <div className={styles.logoBadge}>
+                        <span className={styles.initials}>GR</span>
+                    </div>
+                    <FaChartBar className={styles.logoIcon} size={22} />
+                </div>
 
                 {/* Enlaces de navegación (se ocultan en móvil) */}
                 <ul className={`${styles.navLinks} ${isMenuOpen ? styles.open : ""}`}>

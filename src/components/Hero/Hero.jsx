@@ -4,9 +4,8 @@ import ParticlesBackground from "../ParticlesBackground/ParticlesBackground";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
-    const { t, lang } = useLanguage(); // ← Obtén también el idioma actual
+    const { t, lang } = useLanguage();
 
-    // 👇 Función para scroll suave
     const handleScrollToContact = (e) => {
         e.preventDefault();
         const contactSection = document.getElementById("contact");
@@ -26,7 +25,7 @@ const Hero = () => {
                     <h1 className={styles.name}>{t("hero_name")}</h1>
                     <h2 className={styles.role}>
                         <TypeAnimation
-                            key={lang} // 👈 CLAVE: Reinicia la animación al cambiar de idioma
+                            key={lang}
                             sequence={[t("hero_role"), 1500, "", 500]}
                             wrapper="span"
                             speed={50}
@@ -34,13 +33,13 @@ const Hero = () => {
                         />
                     </h2>
                     <p className={styles.description}>{t("hero_description")}</p>
-                    <a href="#contact" className={styles.ctaButton}  onClick={handleScrollToContact}>
+                    <a href="#contact" className={styles.ctaButton} onClick={handleScrollToContact}>
                         {t("hero_cta")}
                     </a>
                 </div>
                 <div className={styles.image}>
-                    <div className={`${styles.avatarPlaceholder} ${styles.floating}`}>
-                        📊
+                    <div className={styles.avatarPlaceholder}>
+                        <img src="/imghero.svg" alt="Giovany Rendon" />
                     </div>
                 </div>
             </div>

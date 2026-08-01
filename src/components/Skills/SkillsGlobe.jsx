@@ -7,14 +7,13 @@ import styles from "./SkillsGlobe.module.css";
 const RADIUS = 2.2;
 
 const SKILLS = [
+    { id: "Excel", label: "Excel" },
+    { id: "PowerBI", label: "Power BI" },
     { id: "Python", label: "Python" },
     { id: "SQL", label: "SQL" },
-    { id: "PowerBI", label: "Power BI" },
-    { id: "Tableau", label: "Tableau" },
-    { id: "Excel", label: "Excel" },
-    { id: "R", label: "R" },
     { id: "Git", label: "Git" },
-    { id: "ML", label: "Machine Learning" },
+    { id: "En", label: "English" },
+    { id: "Pandas", label: "Pandas" },
 ];
 
 // 👇 Genera automáticamente TODAS las combinaciones posibles entre nodos
@@ -102,15 +101,13 @@ const Globe = () => {
 const SkillsGlobe = () => {
     return (
         <div className={styles.globeContainer}>
-            <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
+            <Canvas camera={{ position: [0, 0, 6], fov: 44 }}>
                 <ambientLight intensity={0.9} />
                 <pointLight position={[5, 5, 5]} intensity={1} />
                 <Globe />
                 <OrbitControls
                     enablePan={false}
-                    enableZoom={true}
-                    minDistance={3.5}
-                    maxDistance={9}
+                    enableZoom={false}
                 />
             </Canvas>
         </div>

@@ -22,9 +22,40 @@
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logoBadge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px var(--color-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.logoBadge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+.initials {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.logoIcon {
     color: var(--color-primary);
+    transition: color var(--transition);
+    margin-top: 2px; /* para alinear visualmente */
 }
 
 /* ===== ENLACES ===== */
