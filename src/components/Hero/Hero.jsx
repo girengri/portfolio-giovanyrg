@@ -39,7 +39,7 @@ const Hero = () => {
                 </div>
                 <div className={styles.image}>
                     <div className={styles.avatarPlaceholder}>
-                        <img src="/imghero.svg" alt="Giovany Rendon" />
+                        <img src="./imghero.svg" alt="Giovany Rendon" />
                     </div>
                 </div>
             </div>
