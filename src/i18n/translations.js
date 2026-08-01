@@ -24,6 +24,44 @@ export default {
         contact_success: "¡Mensaje enviado!",
         contact_error: "Error al enviar.",
         footer_text: "© 2026 - Todos los derechos reservados",
+        projects: [
+            {
+                title: "Dashboard Ventas",
+                desc: "Análisis de ventas con Power BI, mostrando KPIs y tendencias.",
+                tech: "Power BI, SQL",
+                image: "📊",
+            },
+            {
+                title: "Modelo Predictivo",
+                desc: "Predicción de demanda usando machine learning (Python).",
+                tech: "Python, Scikit-learn",
+                image: "🤖",
+            },
+            {
+                title: "Análisis de Sentimiento",
+                desc: "Procesamiento de lenguaje natural para analizar tweets.",
+                tech: "Python, NLTK, Pandas",
+                image: "📝",
+            },
+            {
+                title: "Análisis de Clientes",
+                desc: "Segmentación de clientes con clustering (K-Means) y visualización interactiva.",
+                tech: "Python, Pandas, Plotly",
+                image: "👥",
+            },
+            {
+                title: "Monitor de Ventas en Tiempo Real",
+                desc: "Dashboard en tiempo real con WebSockets y D3.js para monitoreo de ventas.",
+                tech: "JavaScript, D3.js, WebSockets",
+                image: "📈",
+            },
+            {
+                title: "Análisis de Mercado",
+                desc: "Estudio de mercado usando scraping de datos y análisis estadístico.",
+                tech: "Python, BeautifulSoup, Pandas",
+                image: "📊",
+            },
+        ],
     },
     en: {
         nav_home: "Home",
@@ -50,5 +88,43 @@ export default {
         contact_success: "Message sent!",
         contact_error: "Error sending.",
         footer_text: "© 2026 - All rights reserved",
+        projects: [
+            {
+                title: "Sales Dashboard",
+                desc: "Sales analysis with Power BI, showing KPIs and trends.",
+                tech: "Power BI, SQL",
+                image: "📊",
+            },
+            {
+                title: "Predictive Model",
+                desc: "Demand forecasting using machine learning (Python).",
+                tech: "Python, Scikit-learn",
+                image: "🤖",
+            },
+            {
+                title: "Sentiment Analysis",
+                desc: "Natural language processing to analyze tweets.",
+                tech: "Python, NLTK, Pandas",
+                image: "📝",
+            },
+            {
+                title: "Customer Analytics",
+                desc: "Customer segmentation with clustering (K-Means) and interactive visualization.",
+                tech: "Python, Pandas, Plotly",
+                image: "👥",
+            },
+            {
+                title: "Real-Time Sales Monitor",
+                desc: "Real-time dashboard with WebSockets and D3.js for sales monitoring.",
+                tech: "JavaScript, D3.js, WebSockets",
+                image: "📈",
+            },
+            {
+                title: "Market Analysis",
+                desc: "Market research using data scraping and statistical analysis.",
+                tech: "Python, BeautifulSoup, Pandas",
+                image: "📊",
+            },
+        ],
     },
 };

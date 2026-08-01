@@ -4,28 +4,37 @@ import ParticlesBackground from "../ParticlesBackground/ParticlesBackground";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
-    const { t } = useLanguage();
+    const { t, lang } = useLanguage(); // ← Obtén también el idioma actual
+
+    // 👇 Función para scroll suave
+    const handleScrollToContact = (e) => {
+        e.preventDefault();
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     return (
         <section id="home" className={styles.hero}>
-            <ParticlesBackground id="particles-hero" />
+            <div className={styles.particlesWrapper}>
+                <ParticlesBackground />
+            </div>
             <div className={`container ${styles.heroContent}`}>
                 <div className={styles.text}>
                     <p className={styles.greeting}>{t("hero_title")}</p>
                     <h1 className={styles.name}>{t("hero_name")}</h1>
-                    {/* El título ahora es inline-block */}
                     <h2 className={styles.role}>
-                        <span className={styles.typewriterWrapper}>
-                            <TypeAnimation
-                                sequence={[t("hero_role"), 1500, "", 500]}
-                                wrapper="span"
-                                speed={50}
-                                repeat={Infinity}
-                            />
-                        </span>
+                        <TypeAnimation
+                            key={lang} // 👈 CLAVE: Reinicia la animación al cambiar de idioma
+                            sequence={[t("hero_role"), 1500, "", 500]}
+                            wrapper="span"
+                            speed={50}
+                            repeat={Infinity}
+                        />
                     </h2>
                     <p className={styles.description}>{t("hero_description")}</p>
-                    <a href="#contact" className={styles.ctaButton}>
+                    <a href="#contact" className={styles.ctaButton}  onClick={handleScrollToContact}>
                         {t("hero_cta")}
                     </a>
                 </div>
