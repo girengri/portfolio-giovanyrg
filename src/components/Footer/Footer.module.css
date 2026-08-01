@@ -3,6 +3,13 @@
     color: #fff;
     padding: 2rem 0;
     text-align: center;
+    position: relative; /* 👈 necesario para que el absolute de las partículas funcione */
+    overflow: hidden;    /* 👈 evita que se desborden */
+}
+
+.footerContent {
+    position: relative; /* 👈 para quedar por encima del canvas */
+    z-index: 1;
 }
 
 .socials {

@@ -8,7 +8,7 @@ const Hero = () => {
 
     return (
         <section id="home" className={styles.hero}>
-            <ParticlesBackground />
+            <ParticlesBackground id="particles-hero" />
             <div className={`container ${styles.heroContent}`}>
                 <div className={styles.text}>
                     <p className={styles.greeting}>{t("hero_title")}</p>
