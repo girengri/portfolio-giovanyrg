@@ -6,7 +6,7 @@ const Page404 = () => {
             <div className={styles.content}>
                 <div className={styles.imageContainer}>
                     <img 
-                        src="/404page.svg" 
+                        src="./404page.svg" 
                         alt="Página no encontrada" 
                         className={styles.image}
                     />
