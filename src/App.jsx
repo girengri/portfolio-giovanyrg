@@ -43,39 +43,41 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <ThemeProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-          toastOptions={{
-            duration: 4000,
-            style: {
-              background: "var(--color-card)",
-              color: "var(--color-text)",
-              borderRadius: "10px",
-              padding: "16px",
-              boxShadow: "0 4px 15px var(--color-shadow)",
-            },
-            success: {
-              iconTheme: {
-                primary: "var(--color-primary)",
-                secondary: "#fff",
+        <LanguageProvider>
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: "var(--color-card)",
+                color: "var(--color-text)",
+                borderRadius: "10px",
+                padding: "16px",
+                boxShadow: "0 4px 15px var(--color-shadow)",
               },
-            },
-            error: {
-              iconTheme: {
-                primary: "#e74c3c",
-                secondary: "#fff",
+              success: {
+                iconTheme: {
+                  primary: "var(--color-primary)",
+                  secondary: "#fff",
+                },
               },
-            },
-          }}
-        />
-        <RedirectHandler>
-          <Routes>
-            <Route path="/" element={<Layout qaMode={false} />} />
-            <Route path="/qa" element={<Layout qaMode={true} />} />
-            <Route path="*" element={<Page404 />} />
-          </Routes>
-        </RedirectHandler>
+              error: {
+                iconTheme: {
+                  primary: "#e74c3c",
+                  secondary: "#fff",
+                },
+              },
+            }}
+          />
+          <RedirectHandler>
+            <Routes>
+              <Route path="/" element={<Layout />} />
+              <Route path="/qa" element={<Layout />} />
+              <Route path="*" element={<Page404 />} />
+            </Routes>
+          </RedirectHandler>
+        </LanguageProvider>
       </ThemeProvider>
     </BrowserRouter>
   );
