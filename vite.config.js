@@ -5,5 +5,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
   // 👇 base dinámica: en desarrollo usa '/', en producción usa la ruta del repo
-  base: mode === "production" ? "/portfolio-giovanyrg/" : "/",
+  base: mode === "production" ? "/portfolio/" : "/",
 }));
