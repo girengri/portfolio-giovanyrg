@@ -1,10 +1,13 @@
 import { createContext, useState, useContext } from "react";
 import { getTranslations } from "../i18n/translations";
+import { useLocation } from "react-router-dom";
 
 const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children, qaMode = false }) => {
+export const LanguageProvider = ({ children }) => {
     const [lang, setLang] = useState("es");
+    const location = useLocation(); //  Obtiene la ruta actual
+    const qaMode = location.pathname.includes("/qa");
 
     const t = (key) => {
         const translations = getTranslations(lang, qaMode);

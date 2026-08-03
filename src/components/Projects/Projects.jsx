@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring"; // ← Añadir react-spring
 import styles from "./Projects.module.css";
 
 const Projects = () => {
-    const { t } = useLanguage();
+    const { t} = useLanguage();
     const projects = t("projects");
     const projectsList = Array.isArray(projects) ? projects : [];
 
@@ -14,7 +14,10 @@ const Projects = () => {
 
     const indexOfLastProject = currentPage * projectsPerPage;
     const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-    const currentProjects = projectsList.slice(indexOfFirstProject, indexOfLastProject);
+    const currentProjects = projectsList.slice(
+        indexOfFirstProject,
+        indexOfLastProject,
+    );
 
     // 👇 ANIMACIÓN AL CAMBIAR DE PÁGINA
     const [springs, api] = useSpring(() => ({
@@ -46,7 +49,7 @@ const Projects = () => {
         <section id="projects" className={styles.projects}>
             <div className="container">
                 <h2>{t("projects_title")}</h2>
-                
+
                 {/* 👇 CONTENEDOR CON ANIMACIÓN */}
                 <animated.div style={springs} className={styles.grid}>
                     {currentProjects.map((project, index) => (

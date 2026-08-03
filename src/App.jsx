@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./context/ThemeContext";
-import { LanguageProvider } from "./context/LanguageContext";
+import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
@@ -43,53 +43,52 @@ function App() {
   return (
     <BrowserRouter basename={basename}>
       <ThemeProvider>
-        <LanguageProvider>
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: "var(--color-card)",
-                color: "var(--color-text)",
-                borderRadius: "10px",
-                padding: "16px",
-                boxShadow: "0 4px 15px var(--color-shadow)",
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: "var(--color-card)",
+              color: "var(--color-text)",
+              borderRadius: "10px",
+              padding: "16px",
+              boxShadow: "0 4px 15px var(--color-shadow)",
+            },
+            success: {
+              iconTheme: {
+                primary: "var(--color-primary)",
+                secondary: "#fff",
               },
-              success: {
-                iconTheme: {
-                  primary: "var(--color-primary)",
-                  secondary: "#fff",
-                },
+            },
+            error: {
+              iconTheme: {
+                primary: "#e74c3c",
+                secondary: "#fff",
               },
-              error: {
-                iconTheme: {
-                  primary: "#e74c3c",
-                  secondary: "#fff",
-                },
-              },
-            }}
-          />
-          <RedirectHandler>
-            <Routes>
-              <Route path="/" element={<Layout qaMode={false} />} />
-              <Route path="/qa" element={<Layout qaMode={true} />} />
-              <Route path="*" element={<Page404 />} />
-            </Routes>
-          </RedirectHandler>
-        </LanguageProvider>
+            },
+          }}
+        />
+        <RedirectHandler>
+          <Routes>
+            <Route path="/" element={<Layout qaMode={false} />} />
+            <Route path="/qa" element={<Layout qaMode={true} />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        </RedirectHandler>
       </ThemeProvider>
     </BrowserRouter>
   );
 }
 
-function Layout({ qaMode = false }) {
+function Layout() {
+  const { qaMode } = useLanguage();
   return (
-    <LanguageProvider qaMode={qaMode}>
+    <LanguageProvider>
       <Navbar />
       <Hero />
       <Skills />
-      <Projects />
+      <Projects key={qaMode} />
       <Contact />
       <Footer />
     </LanguageProvider>
