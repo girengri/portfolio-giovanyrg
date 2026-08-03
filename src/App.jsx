@@ -13,7 +13,10 @@ import Page404 from "./components/Page404/Page404";
 
 function App() {
   return (
-    <BrowserRouter>
+    // dev mode
+    // <BrowserRouter /">
+    // production mode
+    <BrowserRouter basename="/portfolio-giovanyrg/">
       <ThemeProvider>
         <LanguageProvider>
           <Toaster

@@ -16,9 +16,6 @@ const Page404 = () => {
                 <p className={styles.description}>
                     Lo sentimos, la página que buscas no existe o ha sido movida.
                 </p>
-                <a href="/" className={styles.homeButton}>
-                    Volver al inicio
-                </a>
             </div>
         </div>
     );
