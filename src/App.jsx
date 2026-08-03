@@ -36,11 +36,12 @@ function RedirectHandler({ children }) {
 }
 
 function App() {
+  // basename dinámico: en desarrollo '/', en producción '/portfolio-giovanyrg/'
+  const basename =
+    import.meta.env.MODE === "production" ? "/portfolio-giovanyrg/" : "/";
+
   return (
-    // dev mode
-    // <BrowserRouter /">
-    // production mode
-    <BrowserRouter basename="/portfolio-giovanyrg/">
+    <BrowserRouter basename={basename}>
       <ThemeProvider>
         <LanguageProvider>
           <Toaster

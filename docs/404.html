@@ -1,16 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Redireccionando...</title>
-    <script>
-      const path = window.location.pathname;
-      const base = '/portfolio-giovanyrg/';
-      const relativePath = path.startsWith(base) ? path.slice(base.length) : path;
-      window.location.href = base + '?path=' + encodeURIComponent(relativePath);
-    </script>
-  </head>
-  <body>
-    <p>Redireccionando...</p>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Redireccionando...</title>
+  <script>
+    const path = window.location.pathname;
+    const base = "/portfolio-giovanyrg/";
+    const relativePath = path.startsWith(base)
+      ? path.slice(base.length)
+      : path;
+    window.location.href = base + "?path=" + encodeURIComponent(relativePath);
+  </script>
+</head>
+
+<body>
+  <p>Redireccionando...</p>
+</body>
+
 </html>
