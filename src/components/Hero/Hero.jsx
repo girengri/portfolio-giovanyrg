@@ -28,7 +28,7 @@ const Hero = () => {
                     <h1 className={styles.name}>{t("hero_name")}</h1>
                     <h2 className={styles.role}>
                         <TypeAnimation
-                            key={lang}
+                            key={`${lang}-${qaMode}`} 
                             sequence={[t("hero_role"), 1500, "", 500]}
                             wrapper="span"
                             speed={50}
