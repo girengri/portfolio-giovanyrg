@@ -1,21 +1,22 @@
 import { createContext, useState, useContext } from "react";
-import translations from "../i18n/translations";
+import { getTranslations } from "../i18n/translations";
 
 const LanguageContext = createContext();
 
-export const LanguageProvider = ({ children }) => {
+export const LanguageProvider = ({ children, qaMode = false }) => {
     const [lang, setLang] = useState("es");
 
     const t = (key) => {
-        return translations[lang]?.[key] || key;
+        const translations = getTranslations(lang, qaMode);
+        return translations[key] || key;
     };
 
     const changeLanguage = (newLang) => {
-        if (translations[newLang]) setLang(newLang);
+        if (["es", "en"].includes(newLang)) setLang(newLang);
     };
 
     return (
-        <LanguageContext.Provider value={{ lang, t, changeLanguage }}>
+        <LanguageContext.Provider value={{ lang, t, changeLanguage, qaMode }}>
             {children}
         </LanguageContext.Provider>
     );

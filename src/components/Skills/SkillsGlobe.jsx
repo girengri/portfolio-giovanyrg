@@ -3,10 +3,12 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Html, Line } from "@react-three/drei";
 import { useTheme } from "../../context/ThemeContext";
 import styles from "./SkillsGlobe.module.css";
+import { useLanguage } from "../../context/LanguageContext";
 
 const RADIUS = 2.2;
 
-const SKILLS = [
+// Skills normal
+const SKILLS_NORMAL = [
     { id: "Excel", label: "Excel" },
     { id: "PowerBI", label: "Power BI" },
     { id: "Python", label: "Python" },
@@ -14,6 +16,17 @@ const SKILLS = [
     { id: "Git", label: "Git" },
     { id: "En", label: "English" },
     { id: "Pandas", label: "Pandas" },
+];
+
+// 👇 Skills para modo QA
+const SKILLS_QA = [
+    { id: "Selenium", label: "Selenium" },
+    { id: "Jira", label: "Jira" },
+    { id: "Postman", label: "Postman" },
+    { id: "SQL", label: "SQL" },
+    { id: "Python", label: "Python" },
+    { id: "TestRail", label: "TestRail" },
+    { id: "Cypress", label: "Cypress" },
 ];
 
 // 👇 Genera automáticamente TODAS las combinaciones posibles entre nodos
@@ -51,7 +64,12 @@ function useSpherePositions(items, radius) {
 
 const Node = ({ position, label, color }) => (
     <group position={position}>
-        <Html center distanceFactor={6} occlude={false} style={{ pointerEvents: "none" }}>
+        <Html
+            center
+            distanceFactor={6}
+            occlude={false}
+            style={{ pointerEvents: "none" }}
+        >
             <div className={styles.nodeLabel} style={{ color }}>
                 {label}
             </div>
@@ -59,11 +77,11 @@ const Node = ({ position, label, color }) => (
     </group>
 );
 
-const Globe = () => {
+const Globe = ({ skills }) => {
     const { theme } = useTheme();
     const groupRef = useRef();
-    const positions = useSpherePositions(SKILLS, RADIUS);
-    const links = useCompleteLinks(SKILLS);
+    const positions = useSpherePositions(skills, RADIUS);
+    const links = useCompleteLinks(skills);
     const nodeColor = theme === "light" ? "#1e8fff" : "#4a9eff";
     const lineColor = theme === "light" ? "#1e8fff" : "#4a9eff";
 
@@ -86,7 +104,7 @@ const Globe = () => {
                 />
             ))}
 
-            {SKILLS.map((skill) => (
+            {skills.map((skill) => (
                 <Node
                     key={skill.id}
                     position={positions[skill.id]}
@@ -99,16 +117,17 @@ const Globe = () => {
 };
 
 const SkillsGlobe = () => {
+    const { qaMode } = useLanguage(); // 👈 Obtén qaMode
+
+    // Selecciona las skills según el modo
+    const skills = qaMode ? SKILLS_QA : SKILLS_NORMAL;
     return (
         <div className={styles.globeContainer}>
             <Canvas camera={{ position: [0, 0, 6], fov: 44 }}>
                 <ambientLight intensity={0.9} />
                 <pointLight position={[5, 5, 5]} intensity={1} />
-                <Globe />
-                <OrbitControls
-                    enablePan={false}
-                    enableZoom={false}
-                />
+                <Globe skills={skills} />
+                <OrbitControls enablePan={false} enableZoom={false} />
             </Canvas>
         </div>
     );

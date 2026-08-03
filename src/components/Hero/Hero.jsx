@@ -4,7 +4,7 @@ import ParticlesBackground from "../ParticlesBackground/ParticlesBackground";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
-    const { t, lang } = useLanguage();
+    const { t, lang, qaMode } = useLanguage();
 
     const handleScrollToContact = (e) => {
         e.preventDefault();
@@ -13,6 +13,9 @@ const Hero = () => {
             contactSection.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+     // 👇 Elige la imagen según qaMode
+    const heroImage = qaMode ? "./imgheroqa.svg" : "./imghero.svg";
 
     return (
         <section id="home" className={styles.hero}>
@@ -39,7 +42,7 @@ const Hero = () => {
                 </div>
                 <div className={styles.image}>
                     <div className={styles.avatarPlaceholder}>
-                        <img src="./imghero.svg" alt="Giovany Rendon" />
+                        <img src={heroImage} alt="Giovany Rendon" />
                     </div>
                 </div>
             </div>

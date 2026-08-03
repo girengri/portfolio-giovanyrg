@@ -1,4 +1,5 @@
-export default {
+// Traducciones data
+const normalData = {
     es: {
         nav_home: "Inicio",
         nav_skills: "Tecnologías",
@@ -7,7 +8,8 @@ export default {
         hero_title: "Hola, soy",
         hero_name: "Giovany Rendon",
         hero_role: "Analista de Datos & Inteligencia de Negocios",
-        hero_description: "Profesional orientado al análisis de información y generación de reportes, con experiencia trabajando con datos operativos dentro de equipos tecnológicos.",
+        hero_description:
+            "Profesional orientado al análisis de información y generación de reportes, con experiencia trabajando con datos operativos dentro de equipos tecnológicos.",
         hero_cta: "Contáctame",
         skills_title: "Tecnologías",
         skills_subtitle: "Herramientas que domino",
@@ -71,7 +73,8 @@ export default {
         hero_title: "Hi, I'm",
         hero_name: "Giovany Rendon",
         hero_role: "Data Analyst & Business Intelligence",
-        hero_description: "Data  and  reporting  professional  with  experience  working  with  business  data,  documentation,  and  operational reporting within technology teams.",
+        hero_description:
+            "Data  and  reporting  professional  with  experience  working  with  business  data,  documentation,  and  operational reporting within technology teams.",
         hero_cta: "Contact me",
         skills_title: "Tech Stack",
         skills_subtitle: "Tools I master",
@@ -127,4 +130,151 @@ export default {
             },
         ],
     },
+};
+
+// Traducciones qa
+const qaData = {
+    es: {
+        nav_home: "Inicio",
+        nav_skills: "Tecnologías",
+        nav_projects: "Proyectos",
+        nav_contact: "Contacto",
+        hero_title: "Hola, soy",
+        hero_name: "Giovany Rendon",
+        hero_role: "Analista & Tester QA",
+        hero_description:
+            "Profesional orientado al análisis de información y generación de reportes, con experiencia trabajando con datos operativos dentro de equipos tecnológicos.",
+        hero_cta: "Contáctame",
+        skills_title: "Tecnologías",
+        skills_subtitle: "Herramientas que domino",
+        projects_title: "Proyectos",
+        projects_view: "Ver proyecto",
+        contact_title: "Contacto",
+        contact_name: "Nombre",
+        contact_email: "Correo electrónico",
+        contact_message: "Mensaje",
+        contact_send: "Enviar mensaje",
+        contact_required: "Este campo es obligatorio",
+        contact_invalid_email: "Correo inválido",
+        contact_min_length: "Mínimo 10 caracteres",
+        contact_success: "¡Mensaje enviado!",
+        contact_error: "Error al enviar.",
+        footer_text: "© 2026 - Todos los derechos reservados",
+        projects: [
+            {
+                title: "Dashboard Ventas",
+                desc: "Análisis de ventas con Power BI, mostrando KPIs y tendencias.",
+                tech: "Power BI, SQL",
+                image: "📊",
+            },
+            {
+                title: "Modelo Predictivo",
+                desc: "Predicción de demanda usando machine learning (Python).",
+                tech: "Python, Scikit-learn",
+                image: "🤖",
+            },
+            {
+                title: "Análisis de Sentimiento",
+                desc: "Procesamiento de lenguaje natural para analizar tweets.",
+                tech: "Python, NLTK, Pandas",
+                image: "📝",
+            },
+            {
+                title: "Análisis de Clientes",
+                desc: "Segmentación de clientes con clustering (K-Means) y visualización interactiva.",
+                tech: "Python, Pandas, Plotly",
+                image: "👥",
+            },
+            {
+                title: "Monitor de Ventas en Tiempo Real",
+                desc: "Dashboard en tiempo real con WebSockets y D3.js para monitoreo de ventas.",
+                tech: "JavaScript, D3.js, WebSockets",
+                image: "📈",
+            },
+            {
+                title: "Análisis de Mercado",
+                desc: "Estudio de mercado usando scraping de datos y análisis estadístico.",
+                tech: "Python, BeautifulSoup, Pandas",
+                image: "📊",
+            },
+        ],
+    },
+    en: {
+        nav_home: "Home",
+        nav_skills: "Tech Stack",
+        nav_projects: "Projects",
+        nav_contact: "Contact",
+        hero_title: "Hi, I'm",
+        hero_name: "Giovany Rendon",
+        hero_role: "Tester & QA Analyst",
+        hero_description:
+            "Data  and  reporting  professional  with  experience  working  with  business  data,  documentation,  and  operational reporting within technology teams.",
+        hero_cta: "Contact me",
+        skills_title: "Tech Stack",
+        skills_subtitle: "Tools I master",
+        projects_title: "Projects",
+        projects_view: "View project",
+        contact_title: "Contact",
+        contact_name: "Name",
+        contact_email: "Email",
+        contact_message: "Message",
+        contact_send: "Send message",
+        contact_required: "This field is required",
+        contact_invalid_email: "Invalid email",
+        contact_min_length: "Minimum 10 characters",
+        contact_success: "Message sent!",
+        contact_error: "Error sending.",
+        footer_text: "© 2026 - All rights reserved",
+        projects: [
+            {
+                title: "Sales Dashboard",
+                desc: "Sales analysis with Power BI, showing KPIs and trends.",
+                tech: "Power BI, SQL",
+                image: "📊",
+            },
+            {
+                title: "Predictive Model",
+                desc: "Demand forecasting using machine learning (Python).",
+                tech: "Python, Scikit-learn",
+                image: "🤖",
+            },
+            {
+                title: "Sentiment Analysis",
+                desc: "Natural language processing to analyze tweets.",
+                tech: "Python, NLTK, Pandas",
+                image: "📝",
+            },
+            {
+                title: "Customer Analytics",
+                desc: "Customer segmentation with clustering (K-Means) and interactive visualization.",
+                tech: "Python, Pandas, Plotly",
+                image: "👥",
+            },
+            {
+                title: "Real-Time Sales Monitor",
+                desc: "Real-time dashboard with WebSockets and D3.js for sales monitoring.",
+                tech: "JavaScript, D3.js, WebSockets",
+                image: "📈",
+            },
+            {
+                title: "Market Analysis",
+                desc: "Market research using data scraping and statistical analysis.",
+                tech: "Python, BeautifulSoup, Pandas",
+                image: "📊",
+            },
+        ],
+    },
+};
+
+// Exportamos una función que recibe el modo y devuelve las traducciones adecuadas
+export const getTranslations = (lang, qaMode = false) => {
+    const source = qaMode ? qaData : normalData;
+    return source[lang] || source.es;
+};
+
+// Para mantener compatibilidad con el código existente,
+// exportamos un objeto que simula la estructura anterior pero usando la función.
+export default {
+    es: { ...normalData.es, ...qaData.es },
+    en: { ...normalData.en, ...qaData.en },
 };

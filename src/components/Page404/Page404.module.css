@@ -1,0 +1,41 @@
+.page404 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.page404 h1 {
+    font-size: 6rem;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.page404 h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.page404 p {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+.homeLink {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    background-color: var(--color-primary);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.homeLink:hover {
+    background-color: var(--color-primary-dark);
+}
