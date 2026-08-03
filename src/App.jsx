@@ -8,25 +8,34 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./styles/global.css";
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import Page404 from "./components/Page404/Page404";
 import { useEffect } from "react";
 
-function App() {
-
+// 👇 COMPONENTE INTERNO QUE MANEJA LA REDIRECCIÓN
+function RedirectHandler({ children }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    // Leer el parámetro 'path' de la URL
     const params = new URLSearchParams(location.search);
-    const redirectPath = params.get('path');
+    const redirectPath = params.get("path");
     if (redirectPath) {
-      // Limpiar la URL (remover el ?path=)
-      navigate(redirectPath || '/', { replace: true });
+      // Navega a la ruta guardada y limpia la URL
+      navigate(redirectPath, { replace: true });
     }
   }, [location, navigate]);
 
+  return children;
+}
+
+function App() {
   return (
     // dev mode
     // <BrowserRouter /">
@@ -60,12 +69,13 @@ function App() {
               },
             }}
           />
-
-          <Routes>
-            <Route path="/" element={<Layout qaMode={false} />} />
-            <Route path="/qa" element={<Layout qaMode={true} />} />
-            <Route path="*" element={<Page404 />} />
-          </Routes>
+          <RedirectHandler>
+            <Routes>
+              <Route path="/" element={<Layout qaMode={false} />} />
+              <Route path="/qa" element={<Layout qaMode={true} />} />
+              <Route path="*" element={<Page404 />} />
+            </Routes>
+          </RedirectHandler>
         </LanguageProvider>
       </ThemeProvider>
     </BrowserRouter>
