@@ -8,10 +8,25 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./styles/global.css";
 import { Toaster } from "react-hot-toast";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Page404 from "./components/Page404/Page404";
+import { useEffect } from "react";
 
 function App() {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Leer el parámetro 'path' de la URL
+    const params = new URLSearchParams(location.search);
+    const redirectPath = params.get('path');
+    if (redirectPath) {
+      // Limpiar la URL (remover el ?path=)
+      navigate(redirectPath || '/', { replace: true });
+    }
+  }, [location, navigate]);
+
   return (
     // dev mode
     // <BrowserRouter /">
