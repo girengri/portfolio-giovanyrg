@@ -28,40 +28,47 @@ const normalData = {
         footer_text: "© 2026 - Todos los derechos reservados",
         projects: [
             {
-                title: "Dashboard Ventas",
-                desc: "Análisis de ventas con Power BI, mostrando KPIs y tendencias.",
-                tech: "Power BI, SQL",
-                image: "📊",
+                title: "Dashboard de Rendimiento Financiero",
+                desc: "Dashboard interactivo para analizar ventas, ganancias, márgenes y el impacto de los descuentos por país y producto. Construido con Power BI, SQL y Python para la limpieza e importación de datos.",
+                tech: "Power BI, SQL, Python, Pandas",
+                image:
+                    "https://res.cloudinary.com/girengri/image/upload/v1785807634/portafoliodata/fcotrqgbjyrzdkvwd0qq.png",
+                url: "https://github.com/girengri/financial-bi-dashboard",
             },
             {
                 title: "Modelo Predictivo",
                 desc: "Predicción de demanda usando machine learning (Python).",
                 tech: "Python, Scikit-learn",
                 image: "🤖",
+                url: "#",
             },
             {
                 title: "Análisis de Sentimiento",
                 desc: "Procesamiento de lenguaje natural para analizar tweets.",
                 tech: "Python, NLTK, Pandas",
                 image: "📝",
+                url: "#",
             },
             {
                 title: "Análisis de Clientes",
                 desc: "Segmentación de clientes con clustering (K-Means) y visualización interactiva.",
                 tech: "Python, Pandas, Plotly",
                 image: "👥",
+                url: "#",
             },
             {
                 title: "Monitor de Ventas en Tiempo Real",
                 desc: "Dashboard en tiempo real con WebSockets y D3.js para monitoreo de ventas.",
                 tech: "JavaScript, D3.js, WebSockets",
                 image: "📈",
+                url: "#",
             },
             {
                 title: "Análisis de Mercado",
                 desc: "Estudio de mercado usando scraping de datos y análisis estadístico.",
                 tech: "Python, BeautifulSoup, Pandas",
                 image: "📊",
+                url: "#",
             },
         ],
     },
@@ -93,10 +100,12 @@ const normalData = {
         footer_text: "© 2026 - All rights reserved",
         projects: [
             {
-                title: "Sales Dashboard",
-                desc: "Sales analysis with Power BI, showing KPIs and trends.",
-                tech: "Power BI, SQL",
-                image: "📊",
+                title: "Financial Performance Dashboard",
+                desc: "Interactive dashboard for analyzing sales, profit, margins, and discount impact across countries and products. Built with Power BI, SQL, and Python for data cleaning and import",
+                tech: "Power BI, MySQL, Python, Pandas",
+                image:
+                    "https://res.cloudinary.com/girengri/image/upload/v1785807634/portafoliodata/fcotrqgbjyrzdkvwd0qq.png",
+                url: "https://github.com/girengri/financial-bi-dashboard",
             },
             {
                 title: "Predictive Model",

@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring"; // ← Añadir react-spring
 import styles from "./Projects.module.css";
 
 const Projects = () => {
-    const { t} = useLanguage();
+    const { t } = useLanguage();
     const projects = t("projects");
     const projectsList = Array.isArray(projects) ? projects : [];
 
@@ -55,15 +55,23 @@ const Projects = () => {
                     {currentProjects.map((project, index) => (
                         <div key={index} className={styles.card}>
                             <div className={styles.imageContainer}>
-                                <span className={styles.projectIcon}>
-                                    {project.image || "📁"}
-                                </span>
+                                {project.image && project.image.startsWith("https") ? (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className={styles.projectImage}
+                                    />
+                                ) : (
+                                    <span className={styles.projectIcon}>
+                                        {project.image || "📁"}
+                                    </span>
+                                )}
                             </div>
                             <h3>{project.title}</h3>
                             <p>{project.desc}</p>
                             <span className={styles.tech}>{project.tech}</span>
                             <div className={styles.linkWrapper}>
-                                <a href="#" className={styles.link}>
+                                <a href={project.url} className={styles.link} target="_blank" rel="noopener noreferrer">
                                     {t("projects_view")} →
                                 </a>
                             </div>

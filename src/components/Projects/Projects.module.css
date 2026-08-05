@@ -131,6 +131,13 @@
     border-color: var(--color-primary);
 }
 
+.projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre todo el contenedor sin deformarse */
+    display: block;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     .pagination {
